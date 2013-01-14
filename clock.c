@@ -5,11 +5,19 @@
 
 void print_time(int signum)
 {
+	char weekday[4];
+	char year[5];
+	char month[3];
+	char day[3];
+	char time[6];
 	struct timeval now;
-	char time[21];
 	gettimeofday(&now, NULL);
-	strftime(time, sizeof time, "%a %Y-%m-%d %H:%M", localtime(&now.tv_sec));
-	printf("%s\n", time);
+	strftime(weekday, sizeof weekday, "%a", localtime(&now.tv_sec));
+	strftime(year, sizeof year, "%Y", localtime(&now.tv_sec));
+	strftime(month, sizeof month, "%m", localtime(&now.tv_sec));
+	strftime(day, sizeof day, "%d", localtime(&now.tv_sec));
+	strftime(time, sizeof time, "%H:%M", localtime(&now.tv_sec));
+	printf("^fg(darkolivegreen3)%s ^fg(#ff9000)%s^fg()-^fg(#efa341)%s^fg()-^fg(#ff9000)%s ^fg(#dddddd)%s\n", weekday, year, month, day, time);
 	fflush(stdout);
 }
 
