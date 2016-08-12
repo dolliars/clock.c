@@ -1,6 +1,6 @@
-A simple clock, written in C. It outputs the current date and time every minute.
+I'm taking over this simple clock, written in C that outputs the current date and time every minute.
 
-To build:
+Apparently, to build:
 
 	cc -o clock clock.c
 
